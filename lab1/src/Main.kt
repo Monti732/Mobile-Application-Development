@@ -1,20 +1,25 @@
+package lab1
+
 import kotlin.math.sqrt
 
 fun main() {
-  var fifthTask = FifthTaskClass()
-  fifthTask.runTask()
+  val test = QuadraticEquation()
+  println(test.quadraticRoot(4.0,0.0,8.0))
 }
 
 fun firstTask() {
   //there is no Console.Clear() or something. Hilarious.
   print("Enter number: ")
 
-  try {
-    val number = readln()
-    println(number.first().digitToInt() + number.last().digitToInt())
-  } catch (exception: Exception) {
-    println("It is not a number")
-    firstTask()
+  while (true) {
+    try {
+      val number = readln()
+      println(number.first().digitToInt() + number.last().digitToInt())
+    } catch (exception: Exception) {
+      println("It is not a number")
+      continue
+    }
+    break
   }
 }
 
@@ -79,5 +84,15 @@ fun sieveOfEratosthenes(n: Int): List<Int> {
   return (2..n).filter { isPrime[it] }
 }
 
-
-
+fun fourthTask() {
+  var number: Int
+  while (true) {
+    print("Enter number: ")
+    number = readln().toIntOrNull() ?: run {
+      println("NUMBER")
+      continue
+    }
+    break
+  }
+  println("Primes to $number ${sieveOfEratosthenes(number)}")
+}
